@@ -33,7 +33,6 @@
      - User name*
      - Birthday*
      - Gender*
-     - Profiling*
 
      Гендер должен быть 3 типов Male, Female, Other
 
