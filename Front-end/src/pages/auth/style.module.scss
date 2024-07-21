@@ -1,0 +1,53 @@
+.main {
+    @apply bg-bg w-screen h-screen flex justify-center items-center;
+}
+
+.login, .password, .registration, .registration2 {
+    @apply bg-white rounded-3xl w-96 shadow-2xl flex flex-col items-center p-6; 
+
+    &__logo {
+        @apply w-16 h-16 bg-black;
+    }
+    
+    &__title {
+        @apply text-center font-medium text-xl;
+    }
+
+    &__form {
+        @apply flex flex-col items-center;
+
+        &__input {
+            @apply mt-6 flex flex-col;
+        }
+    
+        &__warning {
+            @apply flex text-center text-mini w-11/12 justify-center text-gray-500 mt-3;
+        }
+
+        &__confirmButton {
+            @apply mt-6;
+        }
+    }
+}
+
+// Specific height adjustments for each class
+.password {
+    @apply h-96;
+}
+
+.registration {
+    @apply h-4/6;
+}
+
+// Specific padding for registration2
+.registration2 {
+    @apply p-10 h-53%;
+}
+
+.oauth_button {
+    @apply flex gap-2 p-2 px-5 border-gray-500 border-2 items-center rounded-3xl;
+
+    &__logo {
+        @apply w-6 h-6;
+    }
+}
