@@ -1,6 +1,9 @@
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import UiButton from '../../shared/ui-kit/button'
 import UiInput from '../../shared/ui-kit/input'
+import { PassForm, passSchema } from './components/auth_schemas'
 import Footer from './components/footer'
 import style from './style.module.scss'
 
@@ -8,14 +11,29 @@ const ForgotPass = () => {
 
     const go = useNavigate()
 
+
+    const {register, handleSubmit, formState} = useForm<PassForm>({
+        defaultValues: {
+            Email: '',
+        },
+        resolver: zodResolver(passSchema)
+    })
+
+    const {errors} =  formState
+
+    const onSubmit = (props: PassForm) => {
+        console.log(props)
+    }
+
     return (
     <div className={style.main}>
         <div className={style.password}>
             <div className={style.password__logo}></div>
-            <h1 className={style.password__title}>Astral <br /> <span className='font-bold text-2xl'>WorkSpace</span></h1>
-            <form className={style.password__form}>
+            <h1 className={style.login__title}>PlanIT</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className={style.password__form}>
                 <div className={style.password__form__input}>
-                    <UiInput placeholder='E-mail'/>
+                    <span className='text-red text-xs ml-4'>{errors.Email?.message}</span>
+                    <UiInput {...register('Email')} placeholder='E-mail'/>
                 </div>
                 <span className={style.password__form__warning}>Write your email and a recovery letter will be sent to it.</span>
                 <div className={style.password__form__confirmButton}>

@@ -1,7 +1,8 @@
-import { createBrowserRouter } from "react-router-dom";
-import Login from "../../pages/auth/login";
-import ForgotPass from "../../pages/auth/Forgot_pass";
-import Registration from "../../pages/auth/registration";
+import { createBrowserRouter } from "react-router-dom"
+import ForgotPass from "../../pages/auth/Forgot_pass"
+import Login from "../../pages/auth/login"
+import Registration from "../../pages/auth/registration"
+import WorkSpaces from '../../pages/workspaces'
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
                 element: <Registration />
             }
         ]
+    },
+    {
+        path: '/workspaces',
+        element: <WorkSpaces />
     }
 ]);
 

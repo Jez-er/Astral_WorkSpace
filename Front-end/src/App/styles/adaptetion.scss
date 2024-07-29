@@ -1,0 +1,15 @@
+@import './variebles.scss';
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == extra-small {
+      @media (max-width: $extra-small-screen) { @content; }
+    } @else if $breakpoint == small {
+      @media (max-width: $small-screen) { @content; }
+    } @else if $breakpoint == medium {
+      @media (max-width: $medium-screen) { @content; }
+    } @else if $breakpoint == large {
+      @media (max-width: $large-screen) { @content; }
+    } @else if $breakpoint == extra-large {
+      @media (max-width: $extra-large-screen) { @content; }
+    }
+  }

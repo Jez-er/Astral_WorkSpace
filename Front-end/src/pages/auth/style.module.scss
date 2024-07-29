@@ -1,3 +1,5 @@
+@import '../../App/styles/adaptetion.scss';
+
 .main {
     @apply bg-bg w-screen h-screen flex justify-center items-center;
 }
@@ -10,7 +12,7 @@
     }
     
     &__title {
-        @apply text-center font-medium text-xl;
+        @apply text-center font-medium text-3xl;
     }
 
     &__form {
@@ -27,6 +29,13 @@
         &__confirmButton {
             @apply mt-6;
         }
+    &__errors {
+        @apply text-red text-mini
+    }
+    }
+
+    @include respond-to(small) {
+        @apply w-80
     }
 }
 
@@ -51,3 +60,4 @@
         @apply w-6 h-6;
     }
 }
+

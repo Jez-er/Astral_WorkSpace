@@ -15,7 +15,7 @@ export default {
             '200': '#DBDBDB',
             '500': '#757575'
           },
-          'main': '#00E1AB',
+          'main': '#093A3B',
           'bg': '#DAEDEA',
           'red': '#f83030',
           'green': '#88fa2a'
