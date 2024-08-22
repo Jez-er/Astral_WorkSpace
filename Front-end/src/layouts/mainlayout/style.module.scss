@@ -1,0 +1,33 @@
+.header {
+	@apply w-screen h-14 py-2.5 px-72 flex;
+
+	&__btn {
+		&__container {
+			@apply relative; /* Контейнер для логотипа и меню */
+		}
+
+		&__logo {
+			@apply w-10 h-10 flex bg-black rounded-3xl justify-center items-center cursor-pointer;
+		}
+	}
+}
+
+.drop_menu {
+	@apply bg-white w-52 mt-2 absolute right-0 px-4 py-2 rounded-2xl;
+	z-index: 10;
+
+	&__nav {
+		@apply ml-1;
+		&__element {
+			@apply flex items-center mt-1 gap-1.5;
+		}
+	}
+}
+
+.open {
+	@apply animate-modal-in;
+}
+
+.close {
+	@apply animate-modal-out;
+}
