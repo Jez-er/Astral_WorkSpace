@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+	@apply w-screen h-screen bg-bg flex items-center justify-center;
+}
+
+.bg {
+	@apply w-7/12 h-5/6 mb-16 bg-main rounded-3xl p-7;
+}
+
+.frame {
+	@apply h-full w-57% bg-white rounded-2xl p-5;
+
+	&__header {
+		@apply flex font-medium;
+
+		&__arrow {
+			@apply w-10 h-6 rounded-2xl p-2 bg-black/20 flex justify-center items-center ml-auto cursor-pointer;
+		}
+	}
+
+	&__main {
+		@apply flex flex-col w-full h-full justify-center items-center content-center -mt-10;
+
+		&__title {
+			@apply mr-auto ml-14 mb-3 font-medium text-lg;
+		}
+
+		&__workspaces {
+			@apply bg-bg w-10/12 h-72 max-h-72 overflow-auto p-5 rounded-2xl;
+
+			&__space {
+				@apply flex mb-3 gap-5 items-center;
+
+				&__logo {
+					@apply flex w-14 h-1 rounded-xl justify-center items-center text-xl text-black/50;
+				}
+
+				&__btn {
+					@apply w-10 h-6 rounded-2xl p-2 bg-main flex justify-center items-center ml-auto text-white/80 cursor-pointer;
+
+					&__delete {
+						@apply rounded-2xl p-1 bg-red-600 flex justify-center items-center ml-auto text-white/80 cursor-pointer w-8 h-8;
+					}
+				}
+			}
+		}
+
+		&__add_btn {
+			@apply w-12 h-full rounded-xl bg-main text-white flex justify-center items-center cursor-pointer;
+
+			&__wrapper {
+				@apply flex items-center mt-5 h-12 gap-3;
+			}
+		}
+	}
+}
+
+@keyframes moveRight {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+.animateToTeam {
+	@apply animate-moveRight;
+}
+
+.animateToYou {
+	@apply animate-moveLeft;
+}
+
+.frame_team {
+	@apply h-full ml-auto w-57% bg-white rounded-2xl p-5;
+
+	&__header {
+		@apply flex font-medium;
+
+		&__arrow {
+			@apply w-10 h-6 rounded-2xl p-2 bg-black/20 flex justify-center items-center ml-auto cursor-pointer;
+		}
+	}
+
+	&__main {
+		@apply flex flex-col w-full h-full justify-center items-center content-center -mt-10;
+
+		&__title {
+			@apply mr-auto ml-14 mb-3 font-medium text-lg;
+		}
+
+		&__workspaces {
+			@apply bg-bg w-10/12 h-72 max-h-72 overflow-auto p-5 rounded-2xl;
+
+			&__space {
+				@apply flex mb-3 gap-5 items-center;
+
+				&__logo {
+					@apply flex w-14 h-1 rounded-xl justify-center items-center text-xl text-black/50;
+				}
+
+				&__btn {
+					@apply w-10 h-6 rounded-2xl p-2 bg-main flex justify-center items-center ml-auto text-white/80 cursor-pointer;
+				}
+			}
+		}
+
+		&__add_btn {
+			@apply w-12 h-full rounded-xl bg-gray-500/40 flex justify-center items-center cursor-pointer;
+
+			&__wrapper {
+				@apply flex mr-auto ml-14 items-center mt-5 h-12 gap-4;
+			}
+		}
+	}
+}
