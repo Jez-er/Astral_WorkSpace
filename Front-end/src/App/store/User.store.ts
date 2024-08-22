@@ -1,26 +1,34 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import AuthService from '../../shared/api/AuthService'
+import AuthService from '../../shared/api/Auth.Service'
 import { IUser } from '../../shared/api/interface/user'
 import { IUserStore } from './interface/User'
 
-
-export const useUserStore = create<IUserStore>()(persist((set) => ({
-    user: {} as IUser,
-    isAuth: false,
-    login: async (email: string, password: string) => {
-            const responseLogin = await AuthService.login(email, password);
-        localStorage.setItem('session', responseLogin.data.Tokens.Token);
-        set(() => ({
-            isAuth: true,
-            user: responseLogin.data.UserData,
-        }));
-    },
-    refresh: async () => {
-        const response = await AuthService.Refresh();
-    localStorage.setItem('session', response.data.Token)
-    }
-    /*registration: async (login: string, email: string, password: string) => {
+export const useUserStore = create<IUserStore>()(
+	persist(
+		set => ({
+			user: {} as IUser,
+			isAuth: false,
+			login: async (email: string, password: string) => {
+				const responseLogin = await AuthService.login(email, password)
+				localStorage.setItem('session', responseLogin.data.Tokens.Token)
+				set(() => ({
+					isAuth: true,
+					user: responseLogin.data.UserData,
+				}))
+			},
+			getUserData: async () => {
+				const response = await AuthService.getUserData()
+				set(() => ({
+					isAuth: true,
+					user: response.data,
+				}))
+			},
+			refresh: async () => {
+				const response = await AuthService.Refresh()
+				localStorage.setItem('session', response.data.Token)
+			},
+			/*registration: async (login: string, email: string, password: string) => {
         try {
             const response = await AuthService.registration(login, email, password);
             localStorage.setItem('token', response.data.refreshToken);
@@ -44,6 +52,9 @@ export const useUserStore = create<IUserStore>()(persist((set) => ({
             console.log(e);
         }
     },*/
-}), {
-    name: 'userStore'
-}));
+		}),
+		{
+			name: 'userStore',
+		}
+	)
+)
